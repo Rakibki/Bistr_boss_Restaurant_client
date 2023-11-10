@@ -16,11 +16,33 @@ const Navber = () => {
           Home
         </NavLink>
       </li>
+
+      <li>
+        <NavLink
+          to="/menu"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          OUR MENU
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/shop"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          OUR SHOP
+        </NavLink>
+      </li>
     </div>
   );
 
   return (
-    <div className="navbar bg-opacity-70 text-white fixed z-40 bg-black">
+    <div className="navbar bg-opacity-70 text-white fixed py-4 top-0 z-40 bg-black">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
