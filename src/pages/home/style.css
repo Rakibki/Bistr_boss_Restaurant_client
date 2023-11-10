@@ -1,0 +1,10 @@
+#bistroBossContainer {
+    background-image: url('../../assets//home/chef-service.jpg');
+    background-position: center center;
+}
+
+
+#featured-food {
+    background-image: url('../../assets//home/featured.jpg');
+    background-position: center;
+}
