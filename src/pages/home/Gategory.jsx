@@ -30,20 +30,45 @@ const Gategory = () => {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
+          <SwiperSlide className="relative">
             <img src={slide1} alt="" />
+            <div className="flex justify-center">
+              <h1 className="text-2xl uppercase absolute bottom-3 block text-center text-white">
+                Salads
+              </h1>
+            </div>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="relative">
             <img src={slide2} alt="" />
+            <div className="flex justify-center">
+              <h1 className="text-2xl uppercase absolute bottom-3 block text-center text-white">
+                Soups
+              </h1>
+            </div>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="relative">
             <img src={slide3} alt="" />
+            <div className="flex justify-center">
+              <h1 className="text-2xl uppercase absolute bottom-3 block text-center text-white">
+                pizzas
+              </h1>
+            </div>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="relative">
             <img src={slide4} alt="" />
+            <div className="flex justify-center">
+              <h1 className="text-2xl uppercase absolute bottom-3 block text-center text-white">
+                desserts
+              </h1>
+            </div>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="relative">
             <img src={slide5} alt="" />
+            <div className="flex justify-center">
+              <h1 className="text-2xl uppercase absolute bottom-3 block text-center text-white">
+                Salads
+              </h1>
+            </div>
           </SwiperSlide>
         </Swiper>
       </div>

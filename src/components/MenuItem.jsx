@@ -13,8 +13,8 @@ const MenuItem = ({ item }) => {
       </div>
       <div className="">
         <div className="flex justify-between">
-          <h2 className="text-3xl font-Cinzel text-[#151515]">{item.name}-------------</h2>
-          <h2 className="text-[#BB8506] text-2xl font-bold">${item.price}</h2>
+          <h2 className="text-2xl font-Cinzel text-[#151515]">{item.name}--------</h2>
+          <h2 className="text-[#BB8506] text-sm font-medium">${item.price}</h2>
         </div>
         <p className="text-[#737373] text-lg">{item.recipe}</p>
       </div>

@@ -32,54 +32,61 @@ const Menu = () => {
       </div>
 
       {/* todayOffered */}
-      <>
+      <div className="p-10">
         <SectionTitle subTitle={"Don't miss"} title={"TODAY'S OFFER"} />
-        <div className="grid grid-cols-2">
+        <div className="grid gap-6 mt-10 grid-cols-2">
           {todayOffered.map((item) => (
             <MenuItem item={item} key={item._id} />
           ))}
         </div>
-      </>
+      </div>
 
       {/* dessert */}
-      <MenuGategory
-        items={dessert}
-        image={dessertimg}
-        title={"DESSERTS"}
-        desc={
-          "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        }
-      />
+      <div className="p-10">
+        <MenuGategory
+          items={dessert}
+          image={dessertimg}
+          title={"DESSERTS"}
+          desc={
+            "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          }
+        />
+      </div>
 
       {/* Salads */}
-      <MenuGategory
-        items={salad}
-        image={saladImage}
-        title={"SALADS"}
-        desc={
-          "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        }
-      />
+      <div className="p-10">
+        <MenuGategory
+          items={salad}
+          image={saladImage}
+          title={"SALADS"}
+          desc={
+            "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          }
+        />
+      </div>
 
       {/* sops */}
-      <MenuGategory
-        items={soup}
-        image={supImage}
-        title={"SOUPS"}
-        desc={
-          "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        }
-      />
-
+      <div className="p-10">
+        <MenuGategory
+          items={soup}
+          image={supImage}
+          title={"SOUPS"}
+          desc={
+            "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          }
+        />
+      </div>
       {/* pizza */}
-      <MenuGategory
-        items={pizza}
-        image={pizzaImage}
-        title={"PIZZA"}
-        desc={
-          "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        }
-      />
+      <div className="p-10">
+        <MenuGategory
+          items={pizza}
+          image={pizzaImage}
+          title={"PIZZA"}
+          desc={
+            "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          }
+        />
+      </div>
     </>
   );
 };

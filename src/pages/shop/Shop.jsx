@@ -23,7 +23,7 @@ const Shop = () => {
       />
 
       <div>
-        <Tabs>
+        <Tabs className="text-base font-semibold mt-8 uppercase text-[#151515]">
           <TabList>
             <Tab>dessert</Tab>
             <Tab>salad</Tab>

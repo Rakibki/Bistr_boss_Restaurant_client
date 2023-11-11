@@ -13,12 +13,11 @@ const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    fetch("reviews.json")
+    fetch("http://localhost:4500/reviews")
       .then((res) => res.json())
       .then((data) => setTestimonials(data));
   }, []);
 
-  console.log(testimonials);
 
   return (
     <div>

@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "./Banner";
 import Gategory from "./Gategory";
 import BistroBoss from "./BistroBoss";
-import Menu from "./Menu";
+import PopularMenu from "./PopularMenu";
 import Contact from "./Contact";
 import ChefRecommends from "./ChefRecommends";
 import FeaturedFood from "./FeaturedFood";
@@ -18,7 +18,7 @@ const Home = () => {
       <Banner />
       <Gategory />
       <BistroBoss />
-      <Menu />
+      <PopularMenu />
       <Contact />
       <ChefRecommends />
       <FeaturedFood />

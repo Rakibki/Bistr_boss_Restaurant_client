@@ -1,16 +1,21 @@
 import React from "react";
 import shop from "../../../assets/icon/shop.png";
 import Frame from "../../../assets/icon/Frame.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const Navber = () => {
   const navItems = (
-    <div className="flex gap-3">
+    <div className="flex gap-6">
       <li>
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-[#EEFF25] uppercase font-semibold"
+              : ""
           }
         >
           Home
@@ -21,7 +26,11 @@ const Navber = () => {
         <NavLink
           to="/menu"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-[#EEFF25] uppercase font-semibold"
+              : ""
           }
         >
           OUR MENU
@@ -32,48 +41,66 @@ const Navber = () => {
         <NavLink
           to="/shop"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-[#EEFF25] uppercase font-semibold"
+              : ""
           }
         >
           OUR SHOP
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-[#EEFF25] uppercase font-semibold"
+              : ""
+          }
+        >
+          CONTACT US
         </NavLink>
       </li>
     </div>
   );
 
   return (
-    <div className="navbar bg-opacity-70 text-white fixed py-4 top-0 z-40 bg-black">
+    <div className="navbar bg-opacity-70 px-16 text-white fixed py-4 top-0 z-40 bg-black">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+            <AiOutlineMenu className="text-white text-3xl" />
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 text-black shadow bg-base-100 rounded-box w-auto"
           >
             {navItems}
           </ul>
         </div>
-        <div>logo</div>
+        <Link to={"/"}>
+          <div className="flex flex-col">
+            <h1 className="text-2xl -mb-2 uppercase font-Cinzel font-semibold">
+              BISTRO BOSS
+            </h1>
+            <h1
+              style={{ letterSpacing: "7px" }}
+              className="text-base uppercase"
+            >
+              Restaurant
+            </h1>
+          </div>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu-horizontal px-1">{navItems}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end space-x-2">
         <div className="w-16">
           <img src={shop} alt="" />
         </div>
