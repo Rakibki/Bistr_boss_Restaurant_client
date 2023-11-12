@@ -3,6 +3,7 @@ import shop from "../../../assets/icon/shop.png";
 import Frame from "../../../assets/icon/Frame.svg";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
+import Dropdown from "./Dropdown";
 
 const Navber = () => {
   const navItems = (
@@ -104,9 +105,12 @@ const Navber = () => {
         <div className="w-16">
           <img src={shop} alt="" />
         </div>
-        <p className="font-semibold text-white">SING IN</p>
-        <div>
-          <img src={Frame} alt="" />
+        <Link to={"/login"}>
+          <p className="font-semibold text-white">SING IN</p>
+        </Link>
+        <div className="dropdown dropdown-bottom dropdown-end">
+          <img tabIndex={0} className="m-1" src={Frame} alt="" />
+          <Dropdown />
         </div>
       </div>
     </div>
