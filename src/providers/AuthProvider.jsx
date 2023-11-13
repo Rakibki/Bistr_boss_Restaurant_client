@@ -69,7 +69,6 @@ const AuthProvider = ({ children }) => {
     updaetUserProfile
   };
 
-  console.log(user);
 
   return (
     <div>

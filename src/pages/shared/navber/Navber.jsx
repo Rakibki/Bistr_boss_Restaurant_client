@@ -4,8 +4,12 @@ import Frame from "../../../assets/icon/Frame.svg";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import Dropdown from "./Dropdown";
+import { FiShoppingCart } from "react-icons/fi";
+import useCard from "../../../hooks/useCard";
 
 const Navber = () => {
+  const [card] = useCard();
+
   const navItems = (
     <div className="flex gap-6">
       <li>
@@ -111,6 +115,14 @@ const Navber = () => {
         <div className="dropdown dropdown-bottom dropdown-end">
           <img tabIndex={0} className="m-1" src={Frame} alt="" />
           <Dropdown />
+        </div>
+        <div className="ml-9  relative">
+          <div className="badge bg-[#D99904] absolute -top-3 left-0 border-none text-white ml-3 badge-secondary">
+            {card?.length}
+          </div>
+          <NavLink to={"/dashbord/card"}> 
+            <FiShoppingCart className="text-2xl" />
+          </NavLink>
         </div>
       </div>
     </div>

@@ -5,7 +5,6 @@ import Loadding from "../pages/shared/loadding/Loadding"
 
 const PrivateRoute = ({children}) => {
     const {user, loadding} = useContext(AuthContext)
-
     const location = useLocation()
 
     if(loadding) {

@@ -13,6 +13,7 @@ const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate()
   const location = useLocation()
+  console.log(location);
 
   // const captcha_value = useRef();
   // const [disabled, setDisabled] = useState(true);
