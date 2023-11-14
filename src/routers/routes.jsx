@@ -10,7 +10,8 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import PrivateRoute from "./PrivateRoute";
 import DashbortLayout from "../layout/dashbortLayout/DashbortLayout";
-import MyCard from "../layout/dashbortLayout/MyCard";
+import MyCard from "../pages/dashbort/MyCard";
+import AdmitHome from "../pages/dashbort/AdmitHome";
 
 const router = createBrowserRouter([
   {
@@ -50,12 +51,16 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/dashbort",
+    path: "dashbort",
     element: <DashbortLayout />,
     children: [
       {
-        path: "dashbord/card",
+        path: "Mycard",
         element: <MyCard />,
+      },
+      {
+        path: "adminHome",
+        element: <AdmitHome />,
       },
     ],
   },

@@ -20,6 +20,7 @@ const SingleFoodItem = ({ item }) => {
         email: user.email,
         foodName: food.name,
         foodPrice: food.price,
+        image: food.image
       };
 
       Axios.post("/cards", odderData)

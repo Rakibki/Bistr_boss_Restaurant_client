@@ -120,7 +120,7 @@ const Navber = () => {
           <div className="badge bg-[#D99904] absolute -top-3 left-0 border-none text-white ml-3 badge-secondary">
             {card?.length}
           </div>
-          <NavLink to={"/dashbord/card"}> 
+          <NavLink to={"/dashbort/mycard"}>
             <FiShoppingCart className="text-2xl" />
           </NavLink>
         </div>
