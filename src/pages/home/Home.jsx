@@ -8,8 +8,10 @@ import ChefRecommends from "./ChefRecommends";
 import FeaturedFood from "./FeaturedFood";
 import Testimonials from "./Testimonials";
 import { Helmet } from "react-helmet";
+import useAdmin from "../../hooks/useAdmin";
 
 const Home = () => {
+
   return (
     <div>
       <Helmet>

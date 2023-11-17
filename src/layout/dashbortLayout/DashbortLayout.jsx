@@ -1,9 +1,19 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { AiFillContacts, AiFillHome, AiFillShop, AiOutlineShop } from "react-icons/ai";
+import {
+  AiFillContacts,
+  AiFillHome,
+  AiFillShop,
+  AiOutlineShop,
+} from "react-icons/ai";
 import { FiHome, FiMenu, FiShoppingCart } from "react-icons/fi";
+import useCard from "../../hooks/useCard";
+import useAdmin from "../../hooks/useAdmin";
 
 const DashbortLayout = () => {
+  const [card] = useCard();
+  const [isAdmin] = useAdmin()
+
   return (
     <div className="grid gap-4 grid-cols-12">
       <div className="col-span-3 bg-[#D1A054] min-h-screen">
@@ -16,37 +26,149 @@ const DashbortLayout = () => {
           </h1>
         </div>
         <ul className="p-6">
-          <li className="mb-1">
-            <NavLink to={"/dashbort/mycard"}>
-              {" "}
-              <div className="flex items-center gap-2">
-                <div>
+          {isAdmin ? (
+            <>
+              {/* ******* admin ralated route start ******* */}
+              <li>
+                <NavLink to={"/dashbort/adminHome"}>
                   {" "}
-                  <FiShoppingCart className="text-2xl" />{" "}
-                </div>
-                <div>
-                  <p className="text-lg mt-1 font-medium font-Inter">My card</p>
-                </div>
-              </div>
-            </NavLink>
-          </li>
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <AiFillHome className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        Admin Home
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
 
-          <li>
-            <NavLink to={"/dashbort/adminHome"}>
-              {" "}
-              <div className="flex items-center gap-2">
-                <div>
+              <li>
+                <NavLink to={"/dashbort/addItem"}>
                   {" "}
-                  <AiFillHome className="text-2xl" />{" "}
-                </div>
-                <div>
-                  <p className="text-lg mt-1 font-medium font-Inter">
-                    Admin Home
-                  </p>
-                </div>
-              </div>
-            </NavLink>
-          </li>
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <AiFillHome className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        Add Item
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to={"/dashbort/manageItem"}>
+                  {" "}
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <AiFillHome className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        Manage Item
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to={"/dashbort/manageBookings"}>
+                  {" "}
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <AiFillHome className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        Manage Bookings
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={"/dashbort/users"}>
+                  {" "}
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <AiFillHome className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        All Users
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
+              {/* ******* admin ralated route start ******* */}
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to={"/"}>
+                  {" "}
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <AiFillHome className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        User Home
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
+
+              <li className="mb-1">
+                <NavLink to={"/dashbort/mycard"}>
+                  {" "}
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <FiShoppingCart className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        My card <span className="text-sm">({card?.length})</span>
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to={"/dashbort/myBooking"}>
+                  {" "}
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <AiFillHome className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        My Bookings
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
+            </>
+          )}
+
           <div className="divider">OR</div>
 
           <li className="mb-1">

@@ -7,17 +7,16 @@ import LoginImage from "../../assets/others/authentication1.png";
 // } from "react-simple-captcha";
 import { AuthContext } from "../../providers/AuthProvider";
 import swal from "sweetalert";
-import {useLocation, useNavigate} from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import SocailLogin from "../../components/socialLogin/SocialLogin";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
-  const navigate = useNavigate()
-  const location = useLocation()
-  console.log(location);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // const captcha_value = useRef();
   // const [disabled, setDisabled] = useState(true);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +27,7 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         swal("Good job!", "Login successfull", "success");
-        navigate(location.state ? location.state : "/")
+        navigate(location.state ? location.state : "/");
       })
       .catch((e) => console.log(e.message));
   };
@@ -116,7 +115,14 @@ const Login = () => {
                 Login
               </button>
             </div>
+            <p className="font-Inter hover:underline text-[#D1A054] text-center mt-3">
+              New here?{" "}
+              <Link to={"/register"}>
+                <span className="font-semibold">Create a New Account</span>
+              </Link>{" "}
+            </p>
           </form>
+          <SocailLogin />
         </div>
       </div>
     </div>

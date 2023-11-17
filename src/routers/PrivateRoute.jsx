@@ -4,10 +4,10 @@ import {Navigate, useLocation}  from "react-router-dom"
 import Loadding from "../pages/shared/loadding/Loadding"
 
 const PrivateRoute = ({children}) => {
-    const {user, loadding} = useContext(AuthContext)
+    const {user, laodding} = useContext(AuthContext)
     const location = useLocation()
 
-    if(loadding) {
+    if(laodding) {
         return <Loadding />
     }
 

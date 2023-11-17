@@ -2,33 +2,41 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import LoginImage from "../../assets/others/authentication1.png";
 import { useForm } from "react-hook-form";
-import {useNavigate} from "react-router-dom"
-import swal from 'sweetalert';
-
+import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import useAxiosLocal from "../../hooks/useAxiosLocal";
+import SocialLogin from "../../components/socialLogin/SocialLogin";
 
 const Register = () => {
   const { createUser, updaetUserProfile } = useContext(AuthContext);
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const AxiosLocal = useAxiosLocal();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
-    createUser(data.email, data.password)
+    createUser(data?.email, data?.password)
       .then((res) => {
-        console.log(res);
-        updaetUserProfile(data.name, data.image);
-        swal("Good job!", "User Create Successfully", "success");
-        navigate("/")
+        updaetUserProfile(data?.name, data?.image).then((res) => {
+          const userData = {
+            name: data.name,
+            email: data.email,
+          };
+          AxiosLocal.post("/users", userData).then((res) => {
+            if (res.data.insertedId) {
+              swal("Good job!", "User Create Successfully", "success");
+              navigate("/");
+            }
+          });
+        });
       })
-      .catch((e) => console.log(e.massege));
+      .catch((e) => console.log(e));
   };
-
-  console.log(errors);
 
   return (
     <div className="hero min-h-screen ">
@@ -119,7 +127,14 @@ const Register = () => {
                 Sign Up
               </button>
             </div>
+            <p className="font-Inter hover:underline text-[#D1A054] text-center mt-3">
+              Already registered?{" "}
+              <Link to={"/login"}>
+                <span className="font-semibold">Go to login</span>
+              </Link>{" "}
+            </p>
           </form>
+          <SocialLogin />
         </div>
       </div>
     </div>

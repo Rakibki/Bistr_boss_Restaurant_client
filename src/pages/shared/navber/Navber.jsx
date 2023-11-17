@@ -75,7 +75,7 @@ const Navber = () => {
   );
 
   return (
-    <div className="navbar bg-opacity-70 px-16 text-white fixed py-4 top-0 z-40 bg-black">
+    <div className="navbar bg-opacity-70 mx-auto max-w-7xl px-16 text-white fixed py-4 top-0 z-40 bg-black">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -120,7 +120,7 @@ const Navber = () => {
           <div className="badge bg-[#D99904] absolute -top-3 left-0 border-none text-white ml-3 badge-secondary">
             {card?.length}
           </div>
-          <NavLink to={"/dashbort/mycard"}>
+          <NavLink to={"/dashbort/adminHome"}>
             <FiShoppingCart className="text-2xl" />
           </NavLink>
         </div>

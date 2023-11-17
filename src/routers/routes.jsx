@@ -12,11 +12,20 @@ import PrivateRoute from "./PrivateRoute";
 import DashbortLayout from "../layout/dashbortLayout/DashbortLayout";
 import MyCard from "../pages/dashbort/MyCard";
 import AdmitHome from "../pages/dashbort/AdmitHome";
+import AddItem from "../pages/dashbort/AddItem";
+import ManageItem from "../pages/dashbort/ManageItem";
+import ManageBookings from "../pages/dashbort/ManageBookings";
+import Users from "../pages/dashbort/Users";
+import MyBooking from "../pages/dashbort/MyBooking";
+import Error from "../pages/error/Error";
+import AdminRouter from "./AdminRouter";
+import UpdateItem from "../pages/dashbort/UpdateItem";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -49,10 +58,15 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
-
   {
     path: "dashbort",
-    element: <DashbortLayout />,
+    errorElement: <Error />,
+    element: (
+      <PrivateRoute>
+        {" "}
+        <DashbortLayout />{" "}
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "Mycard",
@@ -61,6 +75,31 @@ const router = createBrowserRouter([
       {
         path: "adminHome",
         element: <AdmitHome />,
+      },
+      {
+        path: "addItem",
+        element: <AdminRouter> <AddItem /> </AdminRouter>,
+      },
+      {
+        path: "manageItem",
+        element: <AdminRouter> <ManageItem /> </AdminRouter>,
+      },
+      {
+        path: "managebookings",
+        element: <AdminRouter> <ManageBookings /> </AdminRouter>,
+      },
+      {
+        path: "users",
+        element: <AdminRouter> <Users /> </AdminRouter>,
+      },
+      {
+        path: "myBooking",
+        element: <MyBooking />,
+      },
+      {
+        path: "updateItem/:id",
+        element: <UpdateItem />,
+        loader: ({params}) => fetch(`http://localhost:4500/menu/${params.id}`)
       },
     ],
   },
