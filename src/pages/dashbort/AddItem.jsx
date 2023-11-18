@@ -3,11 +3,15 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { MdOutlineFoodBank } from "react-icons/md";
 import useAxiosLocal from "../../hooks/useAxiosLocal"
 import axios from "axios"
+import useAxios from "../../hooks/useAxios"
+import swal from 'sweetalert';
+
 
 const image_api = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMAGE_HPSTING_KRY}`
 
 const AddItem = () => {
   const axiosLocal = useAxiosLocal()
+  const Axios = useAxios()
 
   const {
     register,
@@ -15,15 +19,26 @@ const AddItem = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    const image = {image: data.image[0]}
-    axios.post(image_api, image, {
-      headers: {
-        "context-type" : "multipart/form-data"
-      }
-    })
+
+  const onSubmit = async (data) => {
+    const image =  data.image[0]
+    const imageData = new FormData()
+    imageData.append("image", image)
+    const res = await axios.post(image_api, imageData)
+    const imageUrl = res.data.data.display_url;
+
+    const addedItemDate = {
+      name: data.name,
+      price: data.Price,
+      image: imageUrl,
+      category: data.category,
+      recipe: data.recipe
+    }
+    Axios.post("/menu", addedItemDate)
     .then((res) => {
-      console.log(res);
+      if(res.data.insertedId) {
+        swal("Menu Added successfully!");
+      }
     })
   };
 
@@ -41,7 +56,7 @@ const AddItem = () => {
               </span>
             </label>
             <input
-              {...register("recipe name")}
+              {...register("name")}
               type="text"
               placeholder="Type here"
               className="input bg-white input-bordered w-full"
@@ -62,8 +77,11 @@ const AddItem = () => {
                 <option disabled selected>
                   Who shot first?
                 </option>
-                <option>Han Solo</option>
-                <option>Greedo</option>
+                <option value={"dessert"}>Dessert</option>
+                <option value={"salad"}>Salad</option>
+                <option value={"soup"}>Soup</option>
+                <option value={"pizza"}>pizza</option>
+                <option value={"drinks"}>Drinks</option>
               </select>
             </div>
 
@@ -89,7 +107,7 @@ const AddItem = () => {
             <textarea
               className="textarea textarea-bordered h-24"
               placeholder="Recipe Details*"
-              {...register("RecipeDetails")}
+              {...register("recipe")}
             ></textarea>
           </div>
           <input
