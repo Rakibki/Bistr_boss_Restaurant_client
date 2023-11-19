@@ -3,6 +3,7 @@ import useCard from "../../hooks/useCard";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { FaRegTrashAlt } from "react-icons/fa";
 import useAxios from "../../hooks/useAxios";
+import { Link } from "react-router-dom";
 
 const MyCard = () => {
   const [card, refetch] = useCard();
@@ -41,9 +42,11 @@ const MyCard = () => {
             </h1>
             <h1 className="text-3xl font-Inter">total price: {totalPrice}</h1>
             <h1>
-              <button className=" px-3 py-2 font-medium font-Cinzel text-white bg-[#D1A054]">
+              <Link to={"/dashbort/payment"}>
+              <button className="px-3 py-2 font-medium font-Cinzel text-white bg-[#D1A054]">
                 Pay
               </button>
+              </Link>
             </h1>
           </div>
           <div>

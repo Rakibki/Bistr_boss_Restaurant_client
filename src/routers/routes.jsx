@@ -20,6 +20,7 @@ import MyBooking from "../pages/dashbort/MyBooking";
 import Error from "../pages/error/Error";
 import AdminRouter from "./AdminRouter";
 import UpdateItem from "../pages/dashbort/UpdateItem";
+import Payment from "../pages/dashbort/Payment";
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "myBooking",
         element: <MyBooking />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
       {
         path: "updateItem/:id",
