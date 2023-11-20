@@ -5,11 +5,12 @@ import useAxios from "./useAxios";
 import Loadding from "../pages/shared/loadding/Loadding";
 
 const useAdmin = () => {
-  const { user } = useContext(AuthContext);
+  const { user, laodding } = useContext(AuthContext);
   const Axios = useAxios();
 
 
   const { isPending, error, data:isAdmin } = useQuery({
+    enabled: !laodding && !!user?.email,
     queryKey: ['isAdmin'],
     queryFn: () =>
       Axios.get(`/user/admin/${user.email}`).then(

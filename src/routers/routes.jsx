@@ -20,7 +20,8 @@ import MyBooking from "../pages/dashbort/MyBooking";
 import Error from "../pages/error/Error";
 import AdminRouter from "./AdminRouter";
 import UpdateItem from "../pages/dashbort/UpdateItem";
-import Payment from "../pages/dashbort/Payment";
+import UserHoem from "../pages/dashbort/UserHoem";
+// import Payment from "../pages/dashbort/Payment";
 
 const router = createBrowserRouter([
   {
@@ -75,7 +76,7 @@ const router = createBrowserRouter([
       },
       {
         path: "adminHome",
-        element: <AdmitHome />,
+        element: <AdminRouter> <AdmitHome /> </AdminRouter>,
       },
       {
         path: "addItem",
@@ -98,9 +99,13 @@ const router = createBrowserRouter([
         element: <MyBooking />,
       },
       {
-        path: "payment",
-        element: <Payment />,
+        path: "userHome",
+        element: <UserHoem />,
       },
+      // {
+      //   path: "payment",
+      //   element: <Payment />,
+      // },
       {
         path: "updateItem/:id",
         element: <UpdateItem />,

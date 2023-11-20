@@ -117,7 +117,7 @@ const DashbortLayout = () => {
           ) : (
             <>
               <li>
-                <NavLink to={"/"}>
+                <NavLink to={"/dashbort/userHome"}>
                   {" "}
                   <div className="flex items-center gap-2">
                     <div>

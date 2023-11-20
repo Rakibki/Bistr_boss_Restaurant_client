@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import shop from "../../../assets/icon/shop.png";
 import Frame from "../../../assets/icon/Frame.svg";
 import { Link, NavLink } from "react-router-dom";
@@ -6,9 +6,14 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Dropdown from "./Dropdown";
 import { FiShoppingCart } from "react-icons/fi";
 import useCard from "../../../hooks/useCard";
+import { AuthContext } from "../../../providers/AuthProvider";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navber = () => {
   const [card] = useCard();
+  const { user } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
+
 
   const navItems = (
     <div className="flex gap-6">
@@ -120,9 +125,15 @@ const Navber = () => {
           <div className="badge bg-[#D99904] absolute -top-3 left-0 border-none text-white ml-3 badge-secondary">
             {card?.length}
           </div>
-          <NavLink to={"/dashbort/adminHome"}>
-            <FiShoppingCart className="text-2xl" />
-          </NavLink>
+          {user && isAdmin ? (
+            <NavLink to={"/dashbort/adminHome"}>
+              <FiShoppingCart className="text-2xl" />
+            </NavLink>
+          ) : (
+            <NavLink to={"/dashbort/userHome"}>
+              <FiShoppingCart className="text-2xl" />
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
