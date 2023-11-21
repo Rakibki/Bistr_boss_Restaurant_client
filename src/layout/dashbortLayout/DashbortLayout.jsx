@@ -117,6 +117,23 @@ const DashbortLayout = () => {
           ) : (
             <>
               <li>
+                <NavLink to={"/dashbort/paymentHistory"}>
+                  {" "}
+                  <div className="flex items-center gap-2">
+                    <div>
+                      {" "}
+                      <AiFillHome className="text-2xl" />{" "}
+                    </div>
+                    <div>
+                      <p className="text-lg mt-1 font-medium font-Inter">
+                        Pyment History
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              </li>
+
+              <li>
                 <NavLink to={"/dashbort/userHome"}>
                   {" "}
                   <div className="flex items-center gap-2">

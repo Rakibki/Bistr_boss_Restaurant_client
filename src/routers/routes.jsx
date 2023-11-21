@@ -21,7 +21,8 @@ import Error from "../pages/error/Error";
 import AdminRouter from "./AdminRouter";
 import UpdateItem from "../pages/dashbort/UpdateItem";
 import UserHoem from "../pages/dashbort/UserHoem";
-// import Payment from "../pages/dashbort/Payment";
+import Payment from "../pages/dashbort/Payment";
+import PaymentHistry from "../pages/dashbort/PaymentHistry";
 
 const router = createBrowserRouter([
   {
@@ -102,10 +103,14 @@ const router = createBrowserRouter([
         path: "userHome",
         element: <UserHoem />,
       },
-      // {
-      //   path: "payment",
-      //   element: <Payment />,
-      // },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistry />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
+      },
       {
         path: "updateItem/:id",
         element: <UpdateItem />,

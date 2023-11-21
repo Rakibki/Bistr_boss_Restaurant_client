@@ -23,22 +23,22 @@ const useAxios = () => {
     }
   );
 
-  Axios.interceptors.response.use(
-    function (response) {
-      return response;
-    },
-    async function (error) {
-      if (error.response.status === 401) {
-        await logOutUser()
-          .then((res) => {
-            console.log(res, "user log out");
-          })
-          .catch((e) => console.log(e));
-        navigate("/login");
-      }
-      return Promise.reject(error);
-    }
-  );
+  // Axios.interceptors.response.use(
+  //   function (response) {
+  //     return response;
+  //   },
+  //   async function (error) {
+  //     if (error.response.status === 401) {
+  //       await logOutUser()
+  //         .then((res) => {
+  //           console.log(res, "user log out");
+  //         })
+  //         .catch((e) => console.log(e));
+  //       navigate("/login");
+  //     }
+  //     return Promise.reject(error);
+  //   }
+  // );
 
   return Axios;
 };

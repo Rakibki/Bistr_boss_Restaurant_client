@@ -60,6 +60,7 @@ const AuthProvider = ({ children }) => {
 
       if (currentUser) {
         const userData = { email: currentUser?.email };
+        
         AxiosLocal.post("/jwt", userData).then((res) => {
           if (res.data.token) {
             localStorage.setItem("token", res.data.token);

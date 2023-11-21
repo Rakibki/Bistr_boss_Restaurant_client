@@ -11,14 +11,13 @@ const useCard = () => {
   const {user} = useContext(AuthContext)
   const Axios = useAxios()
 
-
-    const { refetch ,isPending, error, data:card } = useQuery({
+    const { refetch ,isPending, error, data:myCard } = useQuery({
         queryKey: ['card', user?.email],
         queryFn: () =>
         Axios.get(`/cards?email=${user?.email}`)
         .then((res) => res.data) 
       })
-       return [card, refetch]
+       return [myCard, refetch]
 }
 
 export default useCard
