@@ -52,7 +52,7 @@ const AdmitHome = () => {
         <div className="flex bg-gradient-to-r text-white from-[#6AAEFF] to-[#B6F7FF] px-6 py-4 items-center gap-3">
           <GiFoodTruck className="text-4xl" />
           <div>
-            <h1 className="text-4xl font-bold">{data?.menus}</h1>
+            <h1 className="text-4xl font-bold">{data?.oders}</h1>
             <h1 className="text-2xl font-bold">Oders</h1>
           </div>
         </div>
