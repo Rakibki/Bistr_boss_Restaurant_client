@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react'
 import useAxios from './useAxios'
 import {
     useQuery,
   } from '@tanstack/react-query'
   
-const useMenu = () => {
+const useMenu = (sortText, maxPrice, minPrice, serch) => {
     const Axios = useAxios()
 
-    const { isPending:loadding, error, data:menu=[], refetch } = useQuery({
-        queryKey: ['menu'],
+
+
+    const { isPending:loadding, data:menu=[], refetch } = useQuery({
+        queryKey: ['menu', sortText, serch],
          queryFn: () =>
-         Axios("/menu")
+         Axios(`/menu?sort=${sortText}&maxPrice=${maxPrice}&minPrice=${minPrice}&serch=${serch}`)
          .then((res) => {
             return res.data
          })
