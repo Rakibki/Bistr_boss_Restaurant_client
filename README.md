@@ -1,8 +1,3 @@
-# React + Vite
+### project description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Craft a restaurant management website featuring role-based access, allowing users to effortlessly place orders, make payments, and access their payment history. Admins wield control, managing menu items, overseeing all users, and executing essential administrative tasks. Elevate efficiency with a user-friendly interface and powerful administrative functionalities
