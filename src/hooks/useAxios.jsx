@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const Axios = axios.create({
-  baseURL: "http://localhost:4500",
+  baseURL: "https://server-iewzw9g1k-rakibki.vercel.app",
 });
 
 const useAxios = () => {

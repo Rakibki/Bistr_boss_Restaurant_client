@@ -94,7 +94,7 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div className="w-[50%]">
+    <div className="p-10 bg-[red] w-[50%]">
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{
